@@ -2,9 +2,12 @@ var assert = require('assert');
 describe('los estudiantes login', function() {
     it('should visit los estudiantes and failed at log in', function () {
         browser.url('https://losestudiantes.co');
+        browser.pause(4000);  
         browser.click('button=Cerrar');
+        browser.pause(4000);  
         browser.waitForVisible('button=Ingresar', 5000);
         browser.click('button=Ingresar');
+        browser.pause(4000);
 
         var cajaLogIn = browser.element('.cajaLogIn');
         var mailInput = cajaLogIn.element('input[name="correo"]');
@@ -27,13 +30,31 @@ describe('los estudiantes login', function() {
 describe('los estudiantes filter by class', function() {
     it('should visit los estudiantes and filter teachers reviews by class', function () {
         browser.url('https://losestudiantes.co/universidad-de-los-andes/ingenieria-de-sistemas/profesores/mario-linares-vasquez');
-            
-        var classes = browser.element('.jsx-3367902293');
+        browser.pause(4000);    
+        var classes = browser.element('div.jsx-3367902293');
         var checkbox = classes.element('input[name="id:ISIS3510"]');
         checkbox.click();
+        browser.pause(4000);  
 
-        var results = browser.element('.jsx-3672521041');
-        var count = results.elements(selector).values.length
+        var results = browser.element('div.jsx-3672521041');
+        var count = results.elements('.jsx-1682178024 post').length
+        browser.pause(4000); 
         expect(count).toBe(6);
+    });
+});
+describe('los estudiantes visits a teachers profile', function() {
+    it('Visits los estudiantes and enters to teachers porfile', function () {
+        browser.url('https://losestudiantes.co');
+        browser.pause(4000);  
+        browser.click('button=Cerrar');
+        browser.pause(4000); 
+        browser.click('button=Alfabético');
+        browser.pause(4000);    
+        browser.click('div=Adolfo Jose Quiroz Salazar');
+
+        browser.pause(4000); 
+        var titulo = browser.element('.jsx-1339787052 nombreProfesor').getText();
+
+        expect(titulo).toBe('Adolfo Jose Quiroz Salazar');
     });
 });

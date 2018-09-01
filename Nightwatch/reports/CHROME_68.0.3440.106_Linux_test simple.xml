@@ -5,9 +5,11 @@
 
   <testsuite name="test simple"
     errors="0" failures="0" hostname="" id="" package="test simple" skipped="0"
-    tests="1" time="37.34" timestamp="Thu, 23 Aug 2018 23:58:36 GMT">
+    tests="1" time="27.42" timestamp="Sat, 01 Sep 2018 01:07:09 GMT">
   
-    <testcase name="Los estudiantes look up teacher" classname="test simple" time="37.34" assertions="2">
+    <testcase name="Los estudiantes login failed" classname="test simple" time="27.42" assertions="3">
+
+    
 
     
 

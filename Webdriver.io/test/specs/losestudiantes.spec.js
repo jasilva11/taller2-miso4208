@@ -2,12 +2,13 @@ var assert = require('assert');
 describe('los estudiantes login', function() {
     it('should visit los estudiantes and failed at log in', function () {
         browser.url('https://losestudiantes.co');
-        browser.pause(4000);  
-        browser.click('button=Cerrar');
-        browser.pause(4000);  
-        browser.waitForVisible('button=Ingresar', 5000);
+        if (browser.isVisible('button=Cerrar')) {
+            browser.click('button=Cerrar');
+        }
+        browser.waitForVisible('button=Ingresar', 10000);
+        browser.pause(3000);
         browser.click('button=Ingresar');
-        browser.pause(4000);
+        browser.pause(3000);
 
         var cajaLogIn = browser.element('.cajaLogIn');
         var mailInput = cajaLogIn.element('input[name="correo"]');
